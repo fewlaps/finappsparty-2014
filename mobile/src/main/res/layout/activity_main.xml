@@ -23,7 +23,7 @@
         android:id="@+id/donateButton"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:text="@string/donate"/>
+        android:text="@string/donateMain"/>
 
     <TextView
         android:padding="16dp"

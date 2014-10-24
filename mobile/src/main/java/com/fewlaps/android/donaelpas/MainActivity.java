@@ -1,7 +1,9 @@
 package com.fewlaps.android.donaelpas;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.LineChart;
@@ -46,5 +48,12 @@ public class MainActivity extends Activity {
         LineData data = new LineData(xVals, dataSets);
 
         chart.setData(data);
+
+        findViewById(R.id.donateButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, CampaignActivity.class));
+            }
+        });
     }
 }
