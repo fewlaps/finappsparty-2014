@@ -24,4 +24,5 @@ dependencies {
     compile project(':shared')
     wearApp project(':wear')
     compile 'com.google.android.gms:play-services-wearable:+'
+    compile 'de.greenrobot:eventbus:2.2.1'
 }
