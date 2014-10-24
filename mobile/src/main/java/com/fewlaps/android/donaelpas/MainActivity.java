@@ -49,6 +49,7 @@ public class MainActivity extends Activity {
         todaySteps.setText(getString(R.string.steps, event.getTodaySteps()));
         if (todaySteps.getVisibility() == View.INVISIBLE) {
             todaySteps.startAnimation(AnimationUtils.loadAnimation(this, android.R.anim.fade_in));
+            todaySteps.setVisibility(View.VISIBLE);
         }
 
         ArrayList<Entry> valsComp1 = new ArrayList<Entry>();
@@ -80,6 +81,7 @@ public class MainActivity extends Activity {
 
         if (chart.getVisibility() == View.INVISIBLE) {
             chart.startAnimation(AnimationUtils.loadAnimation(this, android.R.anim.fade_in));
+            chart.setVisibility(View.VISIBLE);
         }
     }
 
