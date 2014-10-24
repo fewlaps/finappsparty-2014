@@ -3,5 +3,8 @@
 
     <string name="app_name">Dona el pas</string>
     <string name="steps">%d passes</string>
+    <string name="donateMain">Dona el pas!</string>
+    <string name="donateList">Dona el pas!</string>
+    <string name="thanks">Gràcies!</string>
 
 </resources>
