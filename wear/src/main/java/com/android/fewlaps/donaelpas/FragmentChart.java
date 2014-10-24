@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import com.fewlaps.android.donaelpas.R;
@@ -58,16 +59,26 @@ public class FragmentChart extends Fragment {
         View view = inflater.inflate(R.layout.fragment_chart, container, false);
         final ViewPager vp = ((MainActivity) getActivity()).viewPager;
         todaySteps = (TextView) view.findViewById(R.id.todaySteps);
-        todaySteps.setText(getString(R.string.steps, 18294));
-
         chart = (LineChart) view.findViewById(R.id.chart);
 
-        ArrayList<Entry> valsComp1 = new ArrayList<Entry>();
-        valsComp1.add(new Entry(12047, 0));
-        valsComp1.add(new Entry(9214, 1));
-        valsComp1.add(new Entry(15242, 2));
-        valsComp1.add(new Entry(18294, 3));
+        return view;
+    }
 
+    public void updateScreen(StepEvent event) {
+        todaySteps.setText(getString(R.string.steps, event.getTodaySteps()));
+        if (todaySteps.getVisibility() == View.INVISIBLE) {
+            todaySteps.startAnimation(AnimationUtils.loadAnimation(getActivity(), android.R.anim.fade_in));
+            todaySteps.setVisibility(View.VISIBLE);
+        }
+
+        ArrayList<Entry> valsComp1 = new ArrayList<Entry>();
+        valsComp1.add(new Entry(event.lastWeekSteps.get(6), 0));
+        valsComp1.add(new Entry(event.lastWeekSteps.get(5), 1));
+        valsComp1.add(new Entry(event.lastWeekSteps.get(4), 2));
+        valsComp1.add(new Entry(event.lastWeekSteps.get(3), 3));
+        valsComp1.add(new Entry(event.lastWeekSteps.get(2), 4));
+        valsComp1.add(new Entry(event.lastWeekSteps.get(1), 5));
+        valsComp1.add(new Entry(event.lastWeekSteps.get(0), 6));
         LineDataSet setComp1 = new LineDataSet(valsComp1, null);
 
         ArrayList<LineDataSet> dataSets = new ArrayList<LineDataSet>();
@@ -78,16 +89,23 @@ public class FragmentChart extends Fragment {
         xVals.add("2.Q");
         xVals.add("3.Q");
         xVals.add("4.Q");
+        xVals.add("4.Q");
+        xVals.add("4.Q");
+        xVals.add("4.Q");
 
         LineData data = new LineData(xVals, dataSets);
 
         chart.setData(data);
-        return view;
+        chart.invalidate();
 
+        if (chart.getVisibility() == View.INVISIBLE) {
+            chart.startAnimation(AnimationUtils.loadAnimation(getActivity(), android.R.anim.fade_in));
+            chart.setVisibility(View.VISIBLE);
+        }
     }
 
     public void onEventMainThread(StepEvent event) {
-        Log.i("EVENT", "Today steps: " + event.getTodaySteps());
+        updateScreen(event);
     }
 
     @Override
