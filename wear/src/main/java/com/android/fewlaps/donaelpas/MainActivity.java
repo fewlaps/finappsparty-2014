@@ -44,8 +44,8 @@ public class MainActivity extends FragmentActivity {
                     Fragment chartFragment = new FragmentChart();
                     return chartFragment;
                 case 1:
-                    Fragment giveStepsFragment = new FragmentDonateSteps();
-                    return giveStepsFragment;
+                    Fragment donateStepsFragment = new FragmentDonateSteps();
+                    return donateStepsFragment;
                 default:
                     return null;
             }
