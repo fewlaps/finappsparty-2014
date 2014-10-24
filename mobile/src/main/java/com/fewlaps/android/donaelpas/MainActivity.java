@@ -25,7 +25,7 @@ public class MainActivity extends Activity {
 
     Handler getStepsTask = null;
 
-    private static final int DELAY_STEPS = 2000;
+    private static final int DELAY_STEPS = 500;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

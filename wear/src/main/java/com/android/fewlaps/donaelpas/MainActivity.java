@@ -2,13 +2,18 @@ package com.android.fewlaps.donaelpas;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.support.wearable.view.WatchViewStub;
+import android.util.Log;
 
 import com.fewlaps.android.donaelpas.R;
+
+import de.greenrobot.event.EventBus;
 
 public class MainActivity extends FragmentActivity {
 
@@ -16,6 +21,9 @@ public class MainActivity extends FragmentActivity {
 
     public ViewPager viewPager;
 
+    Handler getStepsTask = null;
+
+    private static final int DELAY_STEPS = 500;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +37,8 @@ public class MainActivity extends FragmentActivity {
                 viewPager.setAdapter(new SectionsPagerAdapter(getFragmentManager()));
             }
         });
+
+        EventBus.getDefault().register(this);
     }
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
@@ -51,6 +61,7 @@ public class MainActivity extends FragmentActivity {
             }
 
         }
+
         @Override
         public int getCount() {
             return NUM_COLUMNS;
@@ -58,4 +69,34 @@ public class MainActivity extends FragmentActivity {
 
     }
 
+
+    public void onEventMainThread(StepEvent event) {
+        Log.i("EVENT", "Today steps: " + event.getTodaySteps());
+    }
+
+    @Override
+    protected void onDestroy() {
+        EventBus.getDefault().unregister(this);
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getStepsTask = new Handler();
+        getStepsTask.postDelayed(new Runnable() {
+            public void run() {
+                startService(new Intent(MainActivity.this, GetStepsIntentService.class));
+                if (getStepsTask != null) {
+                    getStepsTask.postDelayed(this, DELAY_STEPS);
+                }
+            }
+        }, DELAY_STEPS);
+    }
+
+    @Override
+    protected void onPause() {
+        getStepsTask = null;
+        super.onPause();
+    }
 }
