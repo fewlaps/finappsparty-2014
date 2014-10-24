@@ -21,10 +21,6 @@ public class MainActivity extends FragmentActivity {
 
     public ViewPager viewPager;
 
-    Handler getStepsTask = null;
-
-    private static final int DELAY_STEPS = 500;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +34,6 @@ public class MainActivity extends FragmentActivity {
             }
         });
 
-        EventBus.getDefault().register(this);
     }
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
@@ -69,34 +64,4 @@ public class MainActivity extends FragmentActivity {
 
     }
 
-
-    public void onEventMainThread(StepEvent event) {
-        Log.i("EVENT", "Today steps: " + event.getTodaySteps());
-    }
-
-    @Override
-    protected void onDestroy() {
-        EventBus.getDefault().unregister(this);
-        super.onDestroy();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        getStepsTask = new Handler();
-        getStepsTask.postDelayed(new Runnable() {
-            public void run() {
-                startService(new Intent(MainActivity.this, GetStepsIntentService.class));
-                if (getStepsTask != null) {
-                    getStepsTask.postDelayed(this, DELAY_STEPS);
-                }
-            }
-        }, DELAY_STEPS);
-    }
-
-    @Override
-    protected void onPause() {
-        getStepsTask = null;
-        super.onPause();
-    }
 }

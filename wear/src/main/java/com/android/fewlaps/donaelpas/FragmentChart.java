@@ -1,8 +1,11 @@
 package com.android.fewlaps.donaelpas;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +20,8 @@ import com.github.mikephil.charting.data.LineDataSet;
 
 import java.util.ArrayList;
 
+import de.greenrobot.event.EventBus;
+
 /**
  * Created by Esteve on 24/10/14.
  */
@@ -24,6 +29,10 @@ public class FragmentChart extends Fragment {
 
     LineChart chart;
     TextView todaySteps;
+
+    Handler getStepsTask = null;
+
+    private static final int DELAY_STEPS = 500;
 
     public FragmentChart() {
 
@@ -43,6 +52,8 @@ public class FragmentChart extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        EventBus.getDefault().register(this);
 
         View view = inflater.inflate(R.layout.fragment_chart, container, false);
         final ViewPager vp = ((MainActivity) getActivity()).viewPager;
@@ -73,5 +84,35 @@ public class FragmentChart extends Fragment {
         chart.setData(data);
         return view;
 
+    }
+
+    public void onEventMainThread(StepEvent event) {
+        Log.i("EVENT", "Today steps: " + event.getTodaySteps());
+    }
+
+    @Override
+    public void onDestroyView() {
+        EventBus.getDefault().unregister(this);
+        super.onDestroyView();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getStepsTask = new Handler();
+        getStepsTask.postDelayed(new Runnable() {
+            public void run() {
+                getActivity().startService(new Intent(getActivity(), GetStepsIntentService.class));
+                if (getStepsTask != null) {
+                    getStepsTask.postDelayed(this, DELAY_STEPS);
+                }
+            }
+        }, DELAY_STEPS);
+    }
+
+    @Override
+    public void onPause() {
+        getStepsTask = null;
+        super.onPause();
     }
 }
