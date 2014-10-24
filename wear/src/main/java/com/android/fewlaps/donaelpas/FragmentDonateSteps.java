@@ -1,11 +1,13 @@
 package com.android.fewlaps.donaelpas;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.fewlaps.android.donaelpas.R;
@@ -40,6 +42,12 @@ public class FragmentDonateSteps extends Fragment{
         View view = inflater.inflate(R.layout.fragment_donate_steps, container, false);
         final ViewPager vp = ((MainActivity) getActivity()).viewPager;
 
+        view.findViewById(R.id.donate).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), CampaignActivity.class));
+            }
+        });
         return view;
 
     }
