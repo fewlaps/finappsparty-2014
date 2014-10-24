@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="donaelpas.android.fewlaps.com.donaelpas" >
+    package="com.fewlaps.android.donaelpas" >
 
     <uses-feature android:name="android.hardware.type.watch" />
 

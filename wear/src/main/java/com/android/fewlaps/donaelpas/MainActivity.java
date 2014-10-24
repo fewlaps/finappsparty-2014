@@ -1,9 +1,11 @@
-package donaelpas.android.fewlaps.com.donaelpas;
+package com.android.fewlaps.donaelpas;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.wearable.view.WatchViewStub;
 import android.widget.TextView;
+
+import donaelpas.android.fewlaps.com.donaelpas.R;
 
 public class MainActivity extends Activity {
 
