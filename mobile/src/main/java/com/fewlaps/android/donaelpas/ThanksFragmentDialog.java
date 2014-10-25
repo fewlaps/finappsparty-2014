@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ThanksFragmentDialog extends DialogFragment {
 
@@ -19,7 +20,15 @@ public class ThanksFragmentDialog extends DialogFragment {
         LayoutInflater inflater = getActivity().getLayoutInflater();
 
         View v = inflater.inflate(R.layout.dialog_thanks, null);
+        v.findViewById(R.id.button).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), getString(R.string.newsletterSuscribed), Toast.LENGTH_SHORT).show();
+                dismiss();
+            }
+        });
 
+        builder.setTitle(getString(R.string.thanks1));
         builder.setView(v);
         return builder.create();
     }

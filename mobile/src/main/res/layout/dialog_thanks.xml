@@ -7,10 +7,41 @@
     android:orientation="vertical"
     android:padding="@dimen/gapMedium">
 
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="left"
-        android:text="@string/thanks"/>
+        android:padding="@dimen/gapMedium"
+        android:text="@string/thanks2"
+        android:textSize="@dimen/textSizeMedium" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:padding="@dimen/gapMedium"
+        android:text="@string/thanks3"
+        android:textSize="@dimen/textSizeMedium" />
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/gapLarge"
+        android:hint="@string/newsletterHint"
+        android:inputType="textEmailAddress"
+        android:textSize="@dimen/textSizeMedium" />
+
+    <TextView
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:padding="@dimen/gapMedium"
+        android:text="@string/newsletterButton"
+        android:textAllCaps="true"
+        android:textColor="@color/fontColorButton"
+        android:textSize="@dimen/textSizeSmall"
+        android:textStyle="bold" />
 </LinearLayout>
