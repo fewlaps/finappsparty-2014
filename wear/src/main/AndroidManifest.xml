@@ -22,7 +22,8 @@
         <activity
             android:name="com.android.fewlaps.donaelpas.CampaignActivity"
             android:screenOrientation="portrait" />
-
+        <activity android:name="com.android.fewlaps.donaelpas.ThanksActivity"
+            android:screenOrientation="portrait"/>
         <service android:name="com.android.fewlaps.donaelpas.GetStepsIntentService" />
     </application>
 

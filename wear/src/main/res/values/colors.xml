@@ -2,5 +2,8 @@
     <color name="fontColorButton">#00F</color>
     <color name="chart_blue">#0083db</color>
     <color name="chart_gray">#999999</color>
+
+    <color name="text_blue">#0083db</color>
+    <color name="text_gray">#999999</color>
     <color name="campaign_background">#666666</color>
 </resources>

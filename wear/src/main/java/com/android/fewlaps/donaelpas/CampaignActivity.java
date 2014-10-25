@@ -2,6 +2,7 @@ package com.android.fewlaps.donaelpas;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -99,7 +100,7 @@ public class CampaignActivity extends FragmentActivity {
             holder.button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-//                    ThanksFragmentDialog.open(activity);
+                    startActivity(new Intent(CampaignActivity.this, ThanksActivity.class));
                 }
             });
 
