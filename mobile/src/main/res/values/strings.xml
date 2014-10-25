@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Dona el pas</string>
+    <string name="app_name">Dóna el pas</string>
     <string name="steps">%d passes</string>
-    <string name="donateMain">Dona el pas!</string>
-    <string name="donateList">Dona el pas!</string>
-    <string name="thanks">Gràcies!</string>
+    <string name="donateMain">Dóna el pas!</string>
+    <string name="donateList">Dóna el pas!</string>
+    <string name="thanks1">Gràcies!</string>
+    <string name="thanks2">Els teus passos s\'han enviat a l\'Obra Social que has escollit</string>
+    <string name="thanks3">Vols saber-ne més? Inscriu-te a la newsletter!</string>
+    <string name="newsletterHint">Indica el teu e-mail</string>
+    <string name="newsletterButton">Inscriu-me</string>
+    <string name="newsletterSuscribed">T\'has registrat a la newsletter!</string>
+    <string name="chooseCampaign">Tria l\'Obra Social en la que vols contribuïr</string>
 
 </resources>

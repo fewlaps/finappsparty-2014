@@ -29,5 +29,7 @@
         android:padding="@dimen/gapMedium"
         android:text="@string/donateList"
         android:textAllCaps="true"
-        android:textColor="@color/fontColorButton" />
+        android:textColor="@color/fontColorButton"
+        android:textSize="@dimen/textSizeSmall"
+        android:textStyle="bold"/>
 </LinearLayout>
