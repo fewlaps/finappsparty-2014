@@ -2,16 +2,22 @@ package com.fewlaps.android.donaelpas;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.view.View;
+import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.google.android.gms.common.images.ImageManager;
 
 import java.util.ArrayList;
 
@@ -32,6 +38,16 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        if(!isFirstRun()){
+            hideViews(false);
+        }
+
+        findViewById(R.id.shadow).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hideViews(true);
+            }
+        });
         totalSteps = (TextView) findViewById(R.id.totalSteps);
         steps = (TextView) findViewById(R.id.steps);
         chart = (BarChart) findViewById(R.id.chart);
@@ -142,4 +158,43 @@ public class MainActivity extends Activity {
         getStepsTask = null;
         super.onPause();
     }
+
+    private void hideViews(boolean animated){
+
+        RelativeLayout butFake = (RelativeLayout) findViewById(R.id.fakeDonateButton);
+        ImageView arrow = (ImageView) findViewById(R.id.arrow);
+        View shadow = (View) findViewById(R.id.shadow);
+        TextView textInstructions1 = (TextView) findViewById(R.id.textInstructions1);
+        TextView textInstructions2 = (TextView) findViewById(R.id.textInstructions2);
+        TextView fakeText = (TextView) findViewById(R.id.fakeText);
+
+        if(animated){
+            Animation fadeOut = AnimationUtils.loadAnimation(MainActivity.this, android.R.anim.fade_out);
+            butFake.startAnimation(fadeOut);
+            arrow.startAnimation(fadeOut);
+            shadow.startAnimation(fadeOut);
+            textInstructions1.startAnimation(fadeOut);
+            textInstructions2.startAnimation(fadeOut);
+            fakeText.startAnimation(fadeOut);
+        }
+
+        butFake.setVisibility(View.INVISIBLE);
+        arrow.setVisibility(View.INVISIBLE);
+        shadow.setVisibility(View.INVISIBLE);
+        textInstructions1.setVisibility(View.INVISIBLE);
+        textInstructions2.setVisibility(View.INVISIBLE);
+        fakeText.setVisibility(View.INVISIBLE);
+    }
+
+    public static final String KEY_PREFS_FIRST_RUN = "first_run";
+
+    private boolean isFirstRun(){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        if(!prefs.getBoolean(KEY_PREFS_FIRST_RUN, true)){
+            prefs.edit().putBoolean(KEY_PREFS_FIRST_RUN, false).apply();
+            return true;
+        }
+        return false;
+    }
+
 }

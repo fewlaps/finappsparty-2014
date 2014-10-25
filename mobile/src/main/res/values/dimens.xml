@@ -21,4 +21,5 @@
     <dimen name="negativeMarginXLarge">-16dp</dimen>
     <dimen name="negativeMarginLarge">-12dp</dimen>
     <dimen name="negativeMarginMedium">-8dp</dimen>
+    <dimen name="negativeMarginSmall">-3dp</dimen>
 </resources>
