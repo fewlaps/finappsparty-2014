@@ -3,6 +3,8 @@ package com.android.fewlaps.donaelpas;
 import android.app.IntentService;
 import android.content.Intent;
 
+import com.fewlaps.android.donaelpas.StepEvent;
+
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 

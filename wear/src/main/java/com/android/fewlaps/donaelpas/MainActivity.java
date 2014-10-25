@@ -2,18 +2,13 @@ package com.android.fewlaps.donaelpas;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.support.wearable.view.WatchViewStub;
-import android.util.Log;
 
 import com.fewlaps.android.donaelpas.R;
-
-import de.greenrobot.event.EventBus;
 
 public class MainActivity extends FragmentActivity {
 
@@ -46,10 +41,10 @@ public class MainActivity extends FragmentActivity {
         public Fragment getItem(int i) {
             switch (i) {
                 case 0:
-                    Fragment chartFragment = new FragmentChart();
+                    Fragment chartFragment = new ChartFragment();
                     return chartFragment;
                 case 1:
-                    Fragment donateStepsFragment = new FragmentDonateSteps();
+                    Fragment donateStepsFragment = new DonateStepsFragment();
                     return donateStepsFragment;
                 default:
                     return null;
