@@ -11,13 +11,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:padding="@dimen/gapLarge"
-        android:visibility="invisible" />
+        android:padding="@dimen/gapMedium"
+        android:textColor="@color/chart_blue"
+        android:text="16.0217"
+        android:textSize="@dimen/textSizeXXLarge"
+        android:visibility="invisible"
+        android:fontFamily="sans-serif-thin"/>
 
-    <com.github.mikephil.charting.charts.LineChart
+    <TextView
+        android:id="@+id/steps"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/chart_gray"
+        android:text="@string/steps"
+        android:textSize="@dimen/textSizeLarge"
+        android:visibility="invisible"
+        android:layout_marginTop="@dimen/negativeMarginXLarge"
+        android:fontFamily="sans-serif-thin"/>
+
+    <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/chart"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="180dp"
         android:layout_marginLeft="@dimen/gapLarge"
         android:layout_marginRight="@dimen/gapLarge"
         android:visibility="invisible" />

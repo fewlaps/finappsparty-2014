@@ -15,4 +15,10 @@
     <dimen name="textSizeSmall">14sp</dimen>
     <dimen name="textSizeMedium">18sp</dimen>
     <dimen name="textSizeLarge">22sp</dimen>
+    <dimen name="textSizeXLarge">42sp</dimen>
+    <dimen name="textSizeXXLarge">64sp</dimen>
+
+    <dimen name="negativeMarginXLarge">-16dp</dimen>
+    <dimen name="negativeMarginLarge">-12dp</dimen>
+    <dimen name="negativeMarginMedium">-8dp</dimen>
 </resources>

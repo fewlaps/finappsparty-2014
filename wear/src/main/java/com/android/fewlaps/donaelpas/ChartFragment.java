@@ -78,8 +78,6 @@ public class ChartFragment extends Fragment {
         }
 
         ArrayList<BarEntry> valsComp1 = new ArrayList<BarEntry>();
-//        valsComp1.add(new BarEntry(event.lastWeekSteps.get(6), 0));
-//        valsComp1.add(new BarEntry(event.lastWeekSteps.get(5), 1));
         valsComp1.add(new BarEntry(event.lastWeekSteps.get(4), 0));
         valsComp1.add(new BarEntry(event.lastWeekSteps.get(3), 1));
         valsComp1.add(new BarEntry(event.lastWeekSteps.get(2), 2));
@@ -89,7 +87,7 @@ public class ChartFragment extends Fragment {
         BarDataSet setComp1 = new BarDataSet(valsComp1, null);
         setComp1.setBarSpacePercent(35f);
         setComp1.setColor(getResources().getColor(R.color.chart_blue));
-        setComp1.setBarShadowColor(getResources().getColor(android.R.color.white));
+        setComp1.setBarShadowColor(getResources().getColor(android.R.color.transparent));
 
         ArrayList<BarDataSet> dataSets = new ArrayList<BarDataSet>();
         dataSets.add(setComp1);
@@ -100,8 +98,6 @@ public class ChartFragment extends Fragment {
         xVals.add("3.Q");
         xVals.add("4.Q");
         xVals.add("4.Q");
-//        xVals.add("4.Q");
-//        xVals.add("4.Q");
 
 
         BarData data = new BarData(xVals, dataSets);

@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">Dóna el pas</string>
-    <string name="steps">%d passes</string>
+    <string name="steps">passes</string>
     <string name="donateMain">Dóna el pas!</string>
     <string name="donateList">Dóna el pas!</string>
     <string name="thanks1">Gràcies!</string>

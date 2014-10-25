@@ -2,4 +2,6 @@
     <color name="fontColorButton">#2196f3</color>
 
     <color name="backgroundDark">#d5d6da</color>
+    <color name="chart_blue">#0083db</color>
+    <color name="chart_gray">#999999</color>
 </resources>

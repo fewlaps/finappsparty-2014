@@ -21,7 +21,7 @@ public class GetStepsIntentService extends IntentService {
             // ...that today is not accessible throug Developer Console! :(
             Thread.sleep(500);
             GregorianCalendar gc = new GregorianCalendar();
-            gc.set(Calendar.HOUR, 0);
+//            gc.set(Calendar.HOUR, 0);
             gc.set(Calendar.MINUTE, 0);
             gc.set(Calendar.SECOND, 0);
             EventBus.getDefault().post(new StepEvent((System.currentTimeMillis() - gc.getTimeInMillis()) / 1000));

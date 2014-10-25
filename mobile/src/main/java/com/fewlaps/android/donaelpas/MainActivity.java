@@ -9,7 +9,11 @@ import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
+import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
@@ -20,8 +24,9 @@ import de.greenrobot.event.EventBus;
 
 
 public class MainActivity extends Activity {
-    LineChart chart;
+    BarChart chart;
     TextView todaySteps;
+    TextView steps;
 
     Handler getStepsTask = null;
 
@@ -33,7 +38,8 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         todaySteps = (TextView) findViewById(R.id.todaySteps);
-        chart = (LineChart) findViewById(R.id.chart);
+        steps = (TextView) findViewById(R.id.steps);
+        chart = (BarChart) findViewById(R.id.chart);
 
         findViewById(R.id.donateButton).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,23 +52,33 @@ public class MainActivity extends Activity {
     }
 
     public void updateScreen(StepEvent event) {
-        todaySteps.setText(getString(R.string.steps, event.getTodaySteps()));
+        todaySteps.setText(String.valueOf(event.getTodaySteps()));
         if (todaySteps.getVisibility() == View.INVISIBLE) {
             todaySteps.startAnimation(AnimationUtils.loadAnimation(this, android.R.anim.fade_in));
             todaySteps.setVisibility(View.VISIBLE);
         }
 
-        ArrayList<Entry> valsComp1 = new ArrayList<Entry>();
-        valsComp1.add(new Entry(event.lastWeekSteps.get(6), 0));
-        valsComp1.add(new Entry(event.lastWeekSteps.get(5), 1));
-        valsComp1.add(new Entry(event.lastWeekSteps.get(4), 2));
-        valsComp1.add(new Entry(event.lastWeekSteps.get(3), 3));
-        valsComp1.add(new Entry(event.lastWeekSteps.get(2), 4));
-        valsComp1.add(new Entry(event.lastWeekSteps.get(1), 5));
-        valsComp1.add(new Entry(event.lastWeekSteps.get(0), 6));
-        LineDataSet setComp1 = new LineDataSet(valsComp1, null);
+        if (steps.getVisibility() == View.INVISIBLE) {
+            steps.startAnimation(AnimationUtils.loadAnimation(this, android.R.anim.fade_in));
+            steps.setVisibility(View.VISIBLE);
+        }
 
-        ArrayList<LineDataSet> dataSets = new ArrayList<LineDataSet>();
+        ArrayList<BarEntry> valsComp1 = new ArrayList<BarEntry>();
+        valsComp1.add(new BarEntry(event.lastWeekSteps.get(6), 0));
+        valsComp1.add(new BarEntry(event.lastWeekSteps.get(5), 1));
+        valsComp1.add(new BarEntry(event.lastWeekSteps.get(4), 2));
+        valsComp1.add(new BarEntry(event.lastWeekSteps.get(3), 3));
+        valsComp1.add(new BarEntry(event.lastWeekSteps.get(2), 4));
+        valsComp1.add(new BarEntry(event.lastWeekSteps.get(1), 5));
+        valsComp1.add(new BarEntry(event.lastWeekSteps.get(0), 6));
+
+
+        BarDataSet setComp1 = new BarDataSet(valsComp1, null);
+        setComp1.setBarSpacePercent(35f);
+        setComp1.setColor(getResources().getColor(R.color.chart_blue));
+        setComp1.setBarShadowColor(getResources().getColor(android.R.color.transparent));
+
+        ArrayList<BarDataSet> dataSets = new ArrayList<BarDataSet>();
         dataSets.add(setComp1);
 
         ArrayList<String> xVals = new ArrayList<String>();
@@ -74,9 +90,20 @@ public class MainActivity extends Activity {
         xVals.add("4.Q");
         xVals.add("4.Q");
 
-        LineData data = new LineData(xVals, dataSets);
+
+        BarData data = new BarData(xVals, dataSets);
 
         chart.setData(data);
+        chart.setDrawYValues(true);
+        chart.setDrawValueAboveBar(true);
+        chart.setDrawGridBackground(false);
+        chart.setDrawHorizontalGrid(false);
+        chart.setDrawVerticalGrid(false);
+        chart.setDrawYLabels(false);
+        chart.setDrawXLabels(false);
+        chart.setDescription("");
+        chart.setDrawLegend(false);
+        chart.setValueTextColor(getResources().getColor(R.color.chart_gray));
         chart.invalidate();
 
         if (chart.getVisibility() == View.INVISIBLE) {
