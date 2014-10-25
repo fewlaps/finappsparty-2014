@@ -20,7 +20,7 @@
         </activity>
         <activity android:name="com.android.fewlaps.donaelpas.CampaignActivity"/>
 
-        <service android:name=".GetStepsIntentService" />
+        <service android:name="com.android.fewlaps.donaelpas.GetStepsIntentService" />
     </application>
 
 </manifest>
