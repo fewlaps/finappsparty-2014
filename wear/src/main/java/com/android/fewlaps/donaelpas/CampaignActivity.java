@@ -2,6 +2,7 @@ package com.android.fewlaps.donaelpas;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.wearable.view.CircledImageView;
@@ -27,19 +28,12 @@ import java.util.List;
  */
 public class CampaignActivity extends FragmentActivity {
 
-
     private ListView list;
-
-    private float mDefaultCircleRadius;
-    private float mSelectedCircleRadius;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_campaign);
-
-        mDefaultCircleRadius = getResources().getDimension(R.dimen.gapXLarge);
-        mSelectedCircleRadius = getResources().getDimension(R.dimen.gapXLarge);
 
         final WatchViewStub stub = (WatchViewStub) findViewById(R.id.watch_view_stub);
         stub.setOnLayoutInflatedListener(new WatchViewStub.OnLayoutInflatedListener() {
@@ -91,6 +85,7 @@ public class CampaignActivity extends FragmentActivity {
                 holder.title = (TextView) convertView.findViewById(R.id.title);
                 holder.description = (TextView) convertView.findViewById(R.id.description);
                 holder.button = convertView.findViewById(R.id.button);
+                holder.image = (ImageView) convertView.findViewById(R.id.image);
                 convertView.setTag(holder);
             } else {
                 holder = (ViewHolder) convertView.getTag();
@@ -98,6 +93,9 @@ public class CampaignActivity extends FragmentActivity {
 
             holder.title.setText(campaigns.get(position).title);
             holder.description.setText(campaigns.get(position).description);
+            int id = activity.getResources().getIdentifier("pick".concat("" + (position % 7 +1)), "drawable", activity.getPackageName());
+            holder.image.setImageBitmap(BitmapFactory.decodeResource(getResources(), id));
+
             holder.button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -112,6 +110,7 @@ public class CampaignActivity extends FragmentActivity {
             TextView title;
             TextView description;
             View button;
+            ImageView image;
         }
     }
 
