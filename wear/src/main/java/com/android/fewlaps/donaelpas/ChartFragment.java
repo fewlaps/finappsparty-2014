@@ -5,24 +5,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import com.fewlaps.android.donaelpas.R;
 import com.fewlaps.android.donaelpas.StepEvent;
 import com.github.mikephil.charting.charts.BarChart;
-import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
-import com.github.mikephil.charting.data.Entry;
-import com.github.mikephil.charting.data.LineData;
-import com.github.mikephil.charting.data.LineDataSet;
 
 import java.util.ArrayList;
 
@@ -94,7 +88,8 @@ public class ChartFragment extends Fragment {
 
         BarDataSet setComp1 = new BarDataSet(valsComp1, null);
         setComp1.setBarSpacePercent(35f);
-        setComp1.setColor(getResources().getColor(R.color.blue));
+        setComp1.setColor(getResources().getColor(R.color.chart_blue));
+        setComp1.setBarShadowColor(getResources().getColor(android.R.color.white));
 
         ArrayList<BarDataSet> dataSets = new ArrayList<BarDataSet>();
         dataSets.add(setComp1);
@@ -121,6 +116,7 @@ public class ChartFragment extends Fragment {
         chart.setDrawXLabels(false);
         chart.setDescription("");
         chart.setDrawLegend(false);
+        chart.setValueTextColor(getResources().getColor(R.color.chart_gray));
         chart.invalidate();
 
         if (chart.getVisibility() == View.INVISIBLE) {
