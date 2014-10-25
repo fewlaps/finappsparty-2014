@@ -38,8 +38,9 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         if (!isFirstRun()) {
-            hideViews(false);
+//            hideViews(false);
         }
 
         findViewById(R.id.shadow).setOnClickListener(new View.OnClickListener() {
