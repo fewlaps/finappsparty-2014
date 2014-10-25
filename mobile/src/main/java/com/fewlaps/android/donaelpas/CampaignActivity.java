@@ -2,6 +2,8 @@ package com.fewlaps.android.donaelpas;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
@@ -9,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -74,6 +77,7 @@ public class CampaignActivity extends FragmentActivity {
                 holder.title = (TextView) convertView.findViewById(R.id.title);
                 holder.description = (TextView) convertView.findViewById(R.id.description);
                 holder.button = convertView.findViewById(R.id.button);
+                holder.image = (ImageView) convertView.findViewById(R.id.image);
                 convertView.setTag(holder);
             } else {
                 holder = (ViewHolder) convertView.getTag();
@@ -88,6 +92,9 @@ public class CampaignActivity extends FragmentActivity {
                 }
             });
 
+            int id = activity.getResources().getIdentifier("pick".concat("" + (position % 7 +1)), "drawable", activity.getPackageName());
+            holder.image.setImageBitmap(BitmapFactory.decodeResource(getResources(), id));
+
             return convertView;
         }
 
@@ -95,6 +102,7 @@ public class CampaignActivity extends FragmentActivity {
             TextView title;
             TextView description;
             View button;
+            ImageView image;
         }
     }
 }
