@@ -8,12 +8,13 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/white"
         android:gravity="center"
         android:padding="@dimen/gapMedium"
         android:text="@string/chooseCampaign"
-        android:textColor="@android:color/tertiary_text_light"
-        android:textSize="@dimen/textSizeMedium" />
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/textSizeMedium"
+        android:background="@color/actionBarColor"
+        android:fontFamily="sans-serif-thin"/>
 
     <View
         android:layout_width="match_parent"
