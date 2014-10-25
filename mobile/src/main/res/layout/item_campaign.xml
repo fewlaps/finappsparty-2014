@@ -8,6 +8,7 @@
     android:padding="@dimen/gapMedium">
 
     <ImageView
+        android:layout_marginLeft="@dimen/gapMedium"
         android:id="@+id/image"
         android:layout_width="72dp"
         android:layout_height="72dp" />

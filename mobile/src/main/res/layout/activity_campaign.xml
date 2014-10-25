@@ -8,17 +8,17 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/backgroundDark"
+        android:background="@android:color/white"
         android:gravity="center"
         android:padding="@dimen/gapMedium"
         android:text="@string/chooseCampaign"
-        android:textSize="@dimen/textSizeMedium"
-        android:textStyle="bold" />
+        android:textColor="@android:color/tertiary_text_light"
+        android:textSize="@dimen/textSizeMedium" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:background="#b1b2b5" />
+        android:background="@color/actionBarColor" />
 
     <ListView
         android:id="@+id/list"

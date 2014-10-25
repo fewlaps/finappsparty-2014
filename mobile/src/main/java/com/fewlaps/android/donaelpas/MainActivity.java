@@ -109,6 +109,7 @@ public class MainActivity extends Activity {
         if (chart.getVisibility() == View.INVISIBLE) {
             chart.startAnimation(AnimationUtils.loadAnimation(this, android.R.anim.fade_in));
             chart.setVisibility(View.VISIBLE);
+            chart.animateY(300);
         }
     }
 
