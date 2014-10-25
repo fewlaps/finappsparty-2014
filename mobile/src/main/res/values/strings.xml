@@ -8,9 +8,13 @@
     <string name="thanks1">Gràcies!</string>
     <string name="thanks2">Els teus passos s\'han enviat a l\'Obra Social que has escollit</string>
     <string name="thanks3">Vols saber-ne més? Inscriu-te a la newsletter!</string>
+    <string name="thanks4">Comparteix la teva donació a la teva xarxa social preferida</string>
     <string name="newsletterHint">Indica el teu e-mail</string>
     <string name="newsletterButton">Inscriu-me</string>
     <string name="newsletterSuscribed">T\'has registrat a la newsletter!</string>
+    <string name="shareButton">Comparteix</string>
+    <string name="shareMessage">He donat 42.391 passes a l\'Obra Social de "la Caixa"!</string>
+    <string name="shareDialogTitle">Compartir...</string>
     <string name="chooseCampaign">Tria l\'Obra Social en la que vols contribuïr</string>
 
 </resources>

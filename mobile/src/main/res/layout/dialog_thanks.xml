@@ -34,12 +34,33 @@
         android:textSize="@dimen/textSizeMedium" />
 
     <TextView
-        android:id="@+id/button"
+        android:id="@+id/suscribeButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="right"
         android:padding="@dimen/gapMedium"
         android:text="@string/newsletterButton"
+        android:textAllCaps="true"
+        android:textColor="@color/fontColorButton"
+        android:textSize="@dimen/textSizeSmall"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_marginTop="@dimen/gapLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:padding="@dimen/gapMedium"
+        android:text="@string/thanks4"
+        android:textSize="@dimen/textSizeMedium" />
+
+    <TextView
+        android:id="@+id/shareButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:padding="@dimen/gapMedium"
+        android:text="@string/shareButton"
         android:textAllCaps="true"
         android:textColor="@color/fontColorButton"
         android:textSize="@dimen/textSizeSmall"

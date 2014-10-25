@@ -3,6 +3,7 @@ package com.fewlaps.android.donaelpas;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
@@ -20,11 +21,23 @@ public class ThanksFragmentDialog extends DialogFragment {
         LayoutInflater inflater = getActivity().getLayoutInflater();
 
         View v = inflater.inflate(R.layout.dialog_thanks, null);
-        v.findViewById(R.id.button).setOnClickListener(new OnClickListener() {
+        v.findViewById(R.id.suscribeButton).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getActivity(), getString(R.string.newsletterSuscribed), Toast.LENGTH_SHORT).show();
                 dismiss();
+                getActivity().finish();
+            }
+        });
+        v.findViewById(R.id.shareButton).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(android.content.Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+                intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
+                intent.putExtra(Intent.EXTRA_TEXT, getString(R.string.shareMessage));
+                startActivity(Intent.createChooser(intent, getString(R.string.shareDialogTitle)));
             }
         });
 
