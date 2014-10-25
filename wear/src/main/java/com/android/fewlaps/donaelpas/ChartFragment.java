@@ -28,7 +28,7 @@ import de.greenrobot.event.EventBus;
 public class ChartFragment extends Fragment {
 
     BarChart chart;
-    TextView todaySteps;
+    TextView totalSteps;
     TextView steps;
 
     Handler getStepsTask = null;
@@ -58,7 +58,7 @@ public class ChartFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_chart, container, false);
         final ViewPager vp = ((MainActivity) getActivity()).viewPager;
-        todaySteps = (TextView) view.findViewById(R.id.todaySteps);
+        totalSteps = (TextView) view.findViewById(R.id.totalSteps);
         steps = (TextView) view.findViewById(R.id.steps);
         chart = (BarChart) view.findViewById(R.id.chart);
 
@@ -66,10 +66,14 @@ public class ChartFragment extends Fragment {
     }
 
     public void updateScreen(StepEvent event) {
-        todaySteps.setText(String.valueOf(event.getTodaySteps()));
-        if (todaySteps.getVisibility() == View.INVISIBLE) {
-            todaySteps.startAnimation(AnimationUtils.loadAnimation(getActivity(), android.R.anim.fade_in));
-            todaySteps.setVisibility(View.VISIBLE);
+        long acumulatedSteps = 0;
+        for(int i=0; i<event.lastWeekSteps.size();i++){
+            acumulatedSteps = acumulatedSteps + event.lastWeekSteps.get(i);
+        }
+        totalSteps.setText(String.valueOf(acumulatedSteps));
+        if (totalSteps.getVisibility() == View.INVISIBLE) {
+            totalSteps.startAnimation(AnimationUtils.loadAnimation(getActivity(), android.R.anim.fade_in));
+            totalSteps.setVisibility(View.VISIBLE);
         }
 
         if (steps.getVisibility() == View.INVISIBLE) {

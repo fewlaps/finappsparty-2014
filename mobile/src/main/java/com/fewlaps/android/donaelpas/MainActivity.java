@@ -20,7 +20,7 @@ import de.greenrobot.event.EventBus;
 
 public class MainActivity extends Activity {
     BarChart chart;
-    TextView todaySteps;
+    TextView totalSteps;
     TextView steps;
 
     Handler getStepsTask = null;
@@ -32,7 +32,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        todaySteps = (TextView) findViewById(R.id.todaySteps);
+        totalSteps = (TextView) findViewById(R.id.totalSteps);
         steps = (TextView) findViewById(R.id.steps);
         chart = (BarChart) findViewById(R.id.chart);
 
@@ -47,10 +47,16 @@ public class MainActivity extends Activity {
     }
 
     public void updateScreen(StepEvent event) {
-        todaySteps.setText(String.valueOf(event.getTodaySteps()));
-        if (todaySteps.getVisibility() == View.INVISIBLE) {
-            todaySteps.startAnimation(AnimationUtils.loadAnimation(this, android.R.anim.fade_in));
-            todaySteps.setVisibility(View.VISIBLE);
+        long acumulatedSteps = 0;
+        for(int i=0; i<event.lastWeekSteps.size();i++){
+            acumulatedSteps = acumulatedSteps + event.lastWeekSteps.get(i);
+        }
+
+        totalSteps.setText(String.valueOf(acumulatedSteps));
+
+        if (totalSteps.getVisibility() == View.INVISIBLE) {
+            totalSteps.startAnimation(AnimationUtils.loadAnimation(this, android.R.anim.fade_in));
+            totalSteps.setVisibility(View.VISIBLE);
         }
 
         if (steps.getVisibility() == View.INVISIBLE) {
@@ -66,7 +72,6 @@ public class MainActivity extends Activity {
         valsComp1.add(new BarEntry(event.lastWeekSteps.get(2), 4));
         valsComp1.add(new BarEntry(event.lastWeekSteps.get(1), 5));
         valsComp1.add(new BarEntry(event.lastWeekSteps.get(0), 6));
-
 
         BarDataSet setComp1 = new BarDataSet(valsComp1, null);
         setComp1.setBarSpacePercent(35f);
