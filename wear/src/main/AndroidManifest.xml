@@ -24,6 +24,7 @@
             android:screenOrientation="portrait" />
         <activity android:name="com.android.fewlaps.donaelpas.ThanksActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name="android.support.wearable.activity.ConfirmationActivity" />
         <service android:name="com.android.fewlaps.donaelpas.GetStepsIntentService" />
     </application>
 
