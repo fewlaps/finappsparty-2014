@@ -18,7 +18,7 @@
         android:text="Title"
         android:textColor="@android:color/black"
         android:textSize="@dimen/textSizeMedium"
-        android:textStyle="bold" />
+        android:fontFamily="sans-serif-thin"/>
 
     <TextView
         android:id="@+id/description"
@@ -37,5 +37,7 @@
         android:padding="@dimen/gapMedium"
         android:text="@string/donateList"
         android:textAllCaps="true"
-        android:textColor="@color/fontColorButton" />
+        android:textColor="@color/fontColorButton"
+        android:fontFamily="sans-serif-thin"
+        android:layout_marginTop="@dimen/negativeMarginMedium"/>
 </LinearLayout>

@@ -17,4 +17,7 @@
     <dimen name="textSizeLarge">22sp</dimen>
     <dimen name="textSizeXLarge">42sp</dimen>
 
+    <dimen name="negativeMarginLarge">-12dp</dimen>
+    <dimen name="negativeMarginMedium">-8dp</dimen>
+
 </resources>
