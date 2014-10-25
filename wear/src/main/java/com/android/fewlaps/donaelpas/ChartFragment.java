@@ -26,7 +26,7 @@ import de.greenrobot.event.EventBus;
 /**
  * Created by Esteve on 24/10/14.
  */
-public class FragmentChart extends Fragment {
+public class ChartFragment extends Fragment {
 
     LineChart chart;
     TextView todaySteps;
@@ -35,7 +35,7 @@ public class FragmentChart extends Fragment {
 
     private static final int DELAY_STEPS = 500;
 
-    public FragmentChart() {
+    public ChartFragment() {
 
     }
 
@@ -93,11 +93,16 @@ public class FragmentChart extends Fragment {
         xVals.add("4.Q");
         xVals.add("4.Q");
 
+        for(LineDataSet set : dataSets){
+            set.setDrawCubic(true);
+        }
         LineData data = new LineData(xVals, dataSets);
 
         chart.setData(data);
         chart.setDrawYLabels(false);
         chart.setDrawXLabels(false);
+        chart.setDescription("");
+        chart.setDrawLegend(false);
         chart.invalidate();
 
         if (chart.getVisibility() == View.INVISIBLE) {

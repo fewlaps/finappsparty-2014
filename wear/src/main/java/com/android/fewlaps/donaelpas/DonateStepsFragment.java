@@ -16,11 +16,11 @@ import com.github.mikephil.charting.charts.LineChart;
 /**
  * Created by Esteve on 24/10/14.
  */
-public class FragmentDonateSteps extends Fragment{
+public class DonateStepsFragment extends Fragment{
     LineChart chart;
     TextView todaySteps;
 
-    public FragmentDonateSteps() {
+    public DonateStepsFragment() {
 
     }
 
