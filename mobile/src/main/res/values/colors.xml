@@ -1,7 +1,9 @@
 <resources>
     <color name="fontColorButton">#2196f3</color>
     <color name="backgroundDark">#d5d6da</color>
-    <color name="chart_blue">#0083db</color>
+    <color name="chart_bar">#eeaa2b</color>
     <color name="chart_gray">#999999</color>
     <color name="actionBarColor">#0184df</color>
+    <color name="text_blue">#0083db</color>
+
 </resources>

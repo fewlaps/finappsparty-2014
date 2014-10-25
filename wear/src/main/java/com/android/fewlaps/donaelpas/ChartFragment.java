@@ -86,7 +86,7 @@ public class ChartFragment extends Fragment {
 
         BarDataSet setComp1 = new BarDataSet(valsComp1, null);
         setComp1.setBarSpacePercent(35f);
-        setComp1.setColor(getResources().getColor(R.color.chart_blue));
+        setComp1.setColor(getResources().getColor(R.color.chart_bar));
         setComp1.setBarShadowColor(getResources().getColor(android.R.color.transparent));
 
         ArrayList<BarDataSet> dataSets = new ArrayList<BarDataSet>();

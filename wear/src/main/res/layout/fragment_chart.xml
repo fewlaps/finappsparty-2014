@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:paddingTop="@dimen/gapMedium"
-        android:textColor="@color/chart_blue"
+        android:textColor="@color/text_blue"
         android:text="16.0217"
         android:textSize="@dimen/textSizeXLarge"
         android:visibility="invisible"

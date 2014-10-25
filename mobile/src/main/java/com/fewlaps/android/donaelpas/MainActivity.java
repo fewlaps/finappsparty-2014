@@ -4,19 +4,14 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
-import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
-import com.github.mikephil.charting.data.Entry;
-import com.github.mikephil.charting.data.LineData;
-import com.github.mikephil.charting.data.LineDataSet;
 
 import java.util.ArrayList;
 
@@ -75,7 +70,7 @@ public class MainActivity extends Activity {
 
         BarDataSet setComp1 = new BarDataSet(valsComp1, null);
         setComp1.setBarSpacePercent(35f);
-        setComp1.setColor(getResources().getColor(R.color.chart_blue));
+        setComp1.setColor(getResources().getColor(R.color.chart_bar));
         setComp1.setBarShadowColor(getResources().getColor(android.R.color.transparent));
 
         ArrayList<BarDataSet> dataSets = new ArrayList<BarDataSet>();

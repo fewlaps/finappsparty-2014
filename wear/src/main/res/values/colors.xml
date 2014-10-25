@@ -1,6 +1,6 @@
 <resources>
     <color name="fontColorButton">#00F</color>
-    <color name="chart_blue">#0083db</color>
+    <color name="chart_bar">#eeaa2b</color>
     <color name="chart_gray">#999999</color>
 
     <color name="text_blue">#0083db</color>
