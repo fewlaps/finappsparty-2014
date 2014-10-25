@@ -23,6 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/donate"
             android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
             android:textSize="@dimen/textSizeLarge"
             android:text="@string/donateMain"/>
     </LinearLayout>

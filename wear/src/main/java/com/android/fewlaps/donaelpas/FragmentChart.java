@@ -96,6 +96,8 @@ public class FragmentChart extends Fragment {
         LineData data = new LineData(xVals, dataSets);
 
         chart.setData(data);
+        chart.setDrawYLabels(false);
+        chart.setDrawXLabels(false);
         chart.invalidate();
 
         if (chart.getVisibility() == View.INVISIBLE) {
@@ -120,7 +122,9 @@ public class FragmentChart extends Fragment {
         getStepsTask = new Handler();
         getStepsTask.postDelayed(new Runnable() {
             public void run() {
-                getActivity().startService(new Intent(getActivity(), GetStepsIntentService.class));
+                if(getActivity()!=null){
+                    getActivity().startService(new Intent(getActivity(), GetStepsIntentService.class));
+                }
                 if (getStepsTask != null) {
                     getStepsTask.postDelayed(this, DELAY_STEPS);
                 }
