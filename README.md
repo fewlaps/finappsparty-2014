@@ -15,10 +15,18 @@ Arribats a aquest punt, amb l’ajuda dels mentors vam arribar a la conclusió d
 
 Tot seguit trobareu tot el fluxe de l'app. L’activitat de la nostra última setmana i tots els passos que hem acumulat i que podem donar a una Obra Social. Si toquem el gran botó rodó, apareixerà una llista de tots els projectes de “la Caixa”. I tan sols haurem de tocar el projecte que més ens agradi per a enviar-hi les nostres passes. D’aquesta manera, “la Caixa” les convertirà en realitat. La app ens donarà les gràcies per la donació, i ens deixarà compartir-ho a les xarxes socials i que ens apuntem a una llista de correu on s’informarà de què s’ha fet amb les passes que s’aporten.
 
+<h3>Smartphone</h3>
+
 <img src="http://fewlaps.com/xtra/finappsparty2014/donaelpas2.png" width="200px">
 <img src="http://fewlaps.com/xtra/finappsparty2014/donaelpas3.png" width="200px">
 <img src="http://fewlaps.com/xtra/finappsparty2014/donaelpas1.png" width="200px">
 
+<h3>Smartwatch</h3>
+
+<img src="http://fewlaps.com/xtra/finappsparty2014/wear1.jpg" width="200px">
+<img src="http://fewlaps.com/xtra/finappsparty2014/wear2.jpg" width="200px">
+<img src="http://fewlaps.com/xtra/finappsparty2014/wear3.jpg" width="200px">
+<img src="http://fewlaps.com/xtra/finappsparty2014/wear4.jpg" width="200px">
 
 ... a més a més, ens ho hem passat bé!
 ================
