@@ -16,6 +16,6 @@
     <string name="shareMessage">He donat 42.391 passes a l\'Obra Social de "la Caixa"!</string>
     <string name="shareDialogTitle">Compartir...</string>
     <string name="chooseCampaign">Tria l\'Obra Social en la que vols contribuïr</string>
-    <string name="premPerDonarLine1">Prem aquest botò</string>
+    <string name="premPerDonarLine1">Prem aquest botó</string>
     <string name="premPerDonarLine2">per donar les passes\n que has acumulat</string>
 </resources>

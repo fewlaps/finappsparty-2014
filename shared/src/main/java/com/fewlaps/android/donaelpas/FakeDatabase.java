@@ -10,7 +10,7 @@ public class FakeDatabase {
 
         campaigns.add(new CampaignBean(1l, "Pobresa i exclusió social", "Prop del 25% dels nens del nostre pais viuen en la pobresa: Busquem solucions"));
         campaigns.add(new CampaignBean(2l, "Integració Laboral", "Oportunitats per a tots, per a que les persones amb dificultats puguin accedir a una feina"));
-        campaigns.add(new CampaignBean(3l, "Atención integral a enfermos avanzados", "La Obra Social \"la Caixa\", per la atenció integral"));
+        campaigns.add(new CampaignBean(3l, "Atenció integral a malalts avançats", "La Obra Social \"la Caixa\", per la atenció integral"));
         campaigns.add(new CampaignBean(4l, "Salut", "Treballem per a unes condicions sanitàries millors per a tots"));
         campaigns.add(new CampaignBean(5l, "Persones grans", "Promovem l'envelliment actiu de la nostra gent gran, afavorim la seva participació social i prevenim la dependència"));
         campaigns.add(new CampaignBean(6l, "Cooperació Internacional", "Coneix les iniciatives solidàries a les que donem suport"));
