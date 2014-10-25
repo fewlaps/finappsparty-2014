@@ -26,8 +26,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/backgroundDark"
-        android:orientation="vertical"
-        android:padding="@dimen/gapLarge">
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#22000000" />
 
         <TextView
             android:id="@+id/donatedSteps"
@@ -38,13 +42,19 @@
             android:padding="@dimen/gapLarge"
             android:text="Has donat 128.481.522 passes" />
 
-        <Button
+        <RelativeLayout
             android:id="@+id/donateButton"
             android:layout_width="160dp"
             android:layout_height="160dp"
             android:layout_above="@id/donatedSteps"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/background_circle"
-            android:text="@string/donateMain" />
+            android:layout_centerInParent="true"
+            android:background="@drawable/background_circle">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="40dp"
+                android:src="@drawable/button_feet" />
+        </RelativeLayout>
     </RelativeLayout>
 </LinearLayout>
