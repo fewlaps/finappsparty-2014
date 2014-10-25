@@ -3,13 +3,17 @@ package com.android.fewlaps.donaelpas;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.support.wearable.view.CircledImageView;
 import android.support.wearable.view.WatchViewStub;
 import android.support.wearable.view.WearableListView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.fewlaps.android.donaelpas.CampaignBean;
@@ -21,12 +25,10 @@ import java.util.List;
 /**
  * Created by Esteve on 24/10/14.
  */
-public class CampaignActivity extends Activity {
+public class CampaignActivity extends FragmentActivity {
 
 
-    private WearableListView mListView;
-    private MyListAdapter mAdapter;
-    private List<CampaignBean> campaignBeanList;
+    private ListView list;
 
     private float mDefaultCircleRadius;
     private float mSelectedCircleRadius;
@@ -36,9 +38,6 @@ public class CampaignActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_campaign);
 
-        mAdapter = new MyListAdapter();
-        campaignBeanList = FakeDatabase.getDatabase();
-
         mDefaultCircleRadius = getResources().getDimension(R.dimen.gapXLarge);
         mSelectedCircleRadius = getResources().getDimension(R.dimen.gapXLarge);
 
@@ -46,83 +45,73 @@ public class CampaignActivity extends Activity {
         stub.setOnLayoutInflatedListener(new WatchViewStub.OnLayoutInflatedListener() {
             @Override
             public void onLayoutInflated(WatchViewStub stub) {
-                mListView = (WearableListView) stub.findViewById(R.id.wearableListView);
-                mListView.setAdapter(mAdapter);
+                list = (ListView) stub.findViewById(R.id.wearableListView);
+                list.setAdapter(new CampaignAdapter(CampaignActivity.this, FakeDatabase.getDatabase()));
             }
         });
     }
 
-    public class MyListAdapter extends WearableListView.Adapter {
+    class CampaignAdapter extends BaseAdapter {
 
-        @Override
-        public WearableListView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-            return new WearableListView.ViewHolder(new SingleCampaignView(CampaignActivity.this));
+        private List<CampaignBean> campaigns;
+        private FragmentActivity activity;
+
+        public CampaignAdapter(FragmentActivity activity, List<CampaignBean> campaigns) {
+            this.campaigns = campaigns;
+            this.activity = activity;
         }
 
-        @Override
-        public void onBindViewHolder(WearableListView.ViewHolder viewHolder, int i) {
-            SingleCampaignView itemView = (SingleCampaignView) viewHolder.itemView;
-
-            TextView title = (TextView) itemView.findViewById(R.id.title);
-            TextView description = (TextView) itemView.findViewById(R.id.description);
-            TextView button = (TextView) itemView.findViewById(R.id.button);
-
-            title.setText(campaignBeanList.get(i).title);
-            description.setText(campaignBeanList.get(i).description);
-
-        }
 
         @Override
-        public int getItemCount() {
-            return campaignBeanList.size();
+        public int getCount() {
+            return campaigns.size();
         }
-    }
 
-    private final class SingleCampaignView extends FrameLayout implements WearableListView.Item {
-
-
-        private float mScale;
-
-        public SingleCampaignView(Context context) {
-            super(context);
-            View.inflate(context, R.layout.item_campaign, this);
-
-        }
 
         @Override
-        public float getProximityMinValue() {
-            return mDefaultCircleRadius;
+        public Object getItem(int position) {
+            return campaigns.get(position);
         }
 
-        @Override
-        public float getProximityMaxValue() {
-            return mSelectedCircleRadius;
-        }
 
         @Override
-        public float getCurrentProximityValue() {
-            return mScale;
+        public long getItemId(int position) {
+            return campaigns.get(position).id;
         }
 
-        @Override
-        public void setScalingAnimatorValue(float value) {
-            mScale = value;
-//            imgView.setCircleRadius(mScale);
-//            imgView.setCircleRadiusPressed(mScale);
-        }
 
         @Override
-        public void onScaleUpStart() {
-//            imgView.setAlpha(1f);
-//            txtView.setAlpha(1f);
-//            imgView.setCircleColor(mChosenCircleColor);
+        public View getView(int position, View convertView, ViewGroup parent) {
+
+            ViewHolder holder;
+            if (convertView == null) {
+                LayoutInflater inflater = LayoutInflater.from(activity);
+                convertView = inflater.inflate(R.layout.item_campaign, null);
+                holder = new ViewHolder();
+                holder.title = (TextView) convertView.findViewById(R.id.title);
+                holder.description = (TextView) convertView.findViewById(R.id.description);
+                holder.button = convertView.findViewById(R.id.button);
+                convertView.setTag(holder);
+            } else {
+                holder = (ViewHolder) convertView.getTag();
+            }
+
+            holder.title.setText(campaigns.get(position).title);
+            holder.description.setText(campaigns.get(position).description);
+            holder.button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+//                    ThanksFragmentDialog.open(activity);
+                }
+            });
+
+            return convertView;
         }
 
-        @Override
-        public void onScaleDownStart() {
-//            imgView.setAlpha(0.5f);
-//            txtView.setAlpha(0.5f);
-//            imgView.setCircleColor(mFadedCircleColor);
+        class ViewHolder {
+            TextView title;
+            TextView description;
+            View button;
         }
     }
 
