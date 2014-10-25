@@ -45,7 +45,7 @@ public class CampaignActivity extends FragmentActivity {
         stub.setOnLayoutInflatedListener(new WatchViewStub.OnLayoutInflatedListener() {
             @Override
             public void onLayoutInflated(WatchViewStub stub) {
-                list = (ListView) stub.findViewById(R.id.wearableListView);
+                list = (ListView) stub.findViewById(R.id.list);
                 list.setAdapter(new CampaignAdapter(CampaignActivity.this, FakeDatabase.getDatabase()));
             }
         });
