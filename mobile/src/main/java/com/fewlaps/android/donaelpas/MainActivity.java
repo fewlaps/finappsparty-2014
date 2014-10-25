@@ -38,7 +38,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if(!isFirstRun()){
+        if (!isFirstRun()) {
             hideViews(false);
         }
 
@@ -64,7 +64,7 @@ public class MainActivity extends Activity {
 
     public void updateScreen(StepEvent event) {
         long acumulatedSteps = 0;
-        for(int i=0; i<event.lastWeekSteps.size();i++){
+        for (int i = 0; i < event.lastWeekSteps.size(); i++) {
             acumulatedSteps = acumulatedSteps + event.lastWeekSteps.get(i);
         }
 
@@ -159,7 +159,7 @@ public class MainActivity extends Activity {
         super.onPause();
     }
 
-    private void hideViews(boolean animated){
+    private void hideViews(boolean animated) {
 
         RelativeLayout butFake = (RelativeLayout) findViewById(R.id.fakeDonateButton);
         ImageView arrow = (ImageView) findViewById(R.id.arrow);
@@ -168,7 +168,7 @@ public class MainActivity extends Activity {
         TextView textInstructions2 = (TextView) findViewById(R.id.textInstructions2);
         TextView fakeText = (TextView) findViewById(R.id.fakeText);
 
-        if(animated){
+        if (animated && butFake.getVisibility() == View.VISIBLE) {
             Animation fadeOut = AnimationUtils.loadAnimation(MainActivity.this, android.R.anim.fade_out);
             butFake.startAnimation(fadeOut);
             arrow.startAnimation(fadeOut);
@@ -188,9 +188,9 @@ public class MainActivity extends Activity {
 
     public static final String KEY_PREFS_FIRST_RUN = "first_run";
 
-    private boolean isFirstRun(){
+    private boolean isFirstRun() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        if(!prefs.getBoolean(KEY_PREFS_FIRST_RUN, true)){
+        if (prefs.getBoolean(KEY_PREFS_FIRST_RUN, true)) {
             prefs.edit().putBoolean(KEY_PREFS_FIRST_RUN, false).apply();
             return true;
         }
