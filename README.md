@@ -20,3 +20,24 @@ Tot seguit trobareu tot el fluxe de l'app. L’activitat de la nostra última se
 <img src="http://fewlaps.com/xtra/finappsparty2014/donaelpas1.png" width="200px">
 
 
+... a més a més, ens ho hem passat bé!
+================
+
+Ara afegim una mica de documentació gràfica sobre el que hem preparat abans de posar-nos a dissenyar i programar. Hem estat els últims a obrir el portàtil... ens fem grans!
+
+<img src="http://fewlaps.com/xtra/finappsparty2014/docu2.jpg" width="200px">
+<img src="http://fewlaps.com/xtra/finappsparty2014/docu3.jpg" width="200px">
+<img src="http://fewlaps.com/xtra/finappsparty2014/docu4.jpg" width="200px">
+<img src="http://fewlaps.com/xtra/finappsparty2014/docu5.jpg" width="200px">
+
+
+I per acabar, algunes fotografies que hem anat fent durant el dia, la nit, i el dia. Hollywood va descobrir els selfies quan nosaltres ja n'érem addictes!
+
+<img src="http://fewlaps.com/xtra/finappsparty2014/festa1.jpg" width="200px">
+<img src="http://fewlaps.com/xtra/finappsparty2014/festa2.jpg" width="200px">
+<img src="http://fewlaps.com/xtra/finappsparty2014/festa3.jpg" width="200px">
+<img src="http://fewlaps.com/xtra/finappsparty2014/festa5.jpg" width="200px">
+<img src="http://fewlaps.com/xtra/finappsparty2014/festa7.jpg" width="200px">
+<img src="http://fewlaps.com/xtra/finappsparty2014/festa8.jpg" width="200px">
+<img src="http://fewlaps.com/xtra/finappsparty2014/festa9.jpg" width="200px">
+<img src="http://fewlaps.com/xtra/finappsparty2014/festa10.jpg" width="200px">
